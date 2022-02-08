@@ -1,0 +1,149 @@
+.projects-and-skills {
+    display: flex;
+    height: 100vh;  
+}
+
+/* .skills-container {
+    display: flex;
+    align-items: center;    
+    height: 100vh;
+    width: 100vh;
+    flex: 1;
+} */
+
+.skills-container {
+    display: flex;
+    align-items: center;    
+    flex: 1;
+}
+
+.skills-title {
+    display: flex;    
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.skill-title-format {
+    padding-left: 10px;
+}
+
+.skills {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+    position: relative;
+}
+
+.projects-wrapper {    
+    padding: 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* .projects-container {
+    flex: 1;
+    display: flex;    
+    align-items: center;
+    height: 100%;
+    width: 100vh;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    margin-right: 40px;
+    padding-bottom: 10px;
+} */
+
+.projects-header {
+    display: flex;
+    flex: 0.5;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.projects-title {
+    padding-top: 70px;
+    margin: 30 0 10px;
+}
+
+/* .projects {
+    flex: 2.5;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-left: 30px; 
+} */
+
+.projects {
+    flex: 2.5;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+@media screen and (max-width: 480px) {
+    .projects-and-skills {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        padding: 50px 20px 20px;
+        height: 50%;
+        flex: 0.5;
+    }
+
+    .skills-title {
+        margin: 0px;
+        padding-bottom: 15px;
+    }
+
+    .skills {
+        padding: 20px 30px 0px;
+    }
+
+    svg {
+        width: 75px;
+        height: 75px;
+    }
+
+    .projects-container {        
+        position: relative;
+        flex: 2;
+        padding: 15px 20px;
+    }
+
+    .projects-wrapper {
+        height: 100%;
+        padding: 5px 15px;
+        flex: 2.5;
+    }
+
+    .projects-header {
+        padding: 0px;
+        justify-content: center;
+        margin: 0px;
+        flex: 0.25;
+    }
+
+    .projects-title {
+        padding: 0px;
+    }
+
+    .projects {
+        height: 100%;
+        position: relative;        
+        flex: 2.75;
+        padding: 30px;
+    }
+}
