@@ -161,4 +161,8 @@ button {
     button {
         margin-top: 10px;
     }
+
+    textarea {
+        height: 10vh;
+    }
 }

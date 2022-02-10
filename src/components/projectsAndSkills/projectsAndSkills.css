@@ -109,7 +109,7 @@
     }
 
     .skills {
-        padding: 20px 30px 0px;
+        padding: 20px 30px -1px;
     }
 
     svg {
@@ -145,5 +145,6 @@
         position: relative;        
         flex: 2.75;
         padding: 30px;
+        justify-content: center;
     }
 }

@@ -36,17 +36,17 @@
     height: 50px;
     text-align: center;
     overflow: hidden;
+    display: flex;    
 }
 
 .me-title-wrapper {
-    height: 100%;
-    text-align: justify;
+    height: 100%;    
     animation: move 5s ease-in-out infinite alternate;
 }
 
 @keyframes move {
     100% {
-        transform: translateY(-50px);
+        transform: translateY(-65px);
     }
     
 }
@@ -54,7 +54,17 @@
 .me-title-item {
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0e5364;
+}
+
+.me-title-item-lole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 50px;
     font-size: 30px;
     font-weight: bold;
@@ -90,6 +100,10 @@
         flex-direction: column;
     }
 
+    .me-name {
+        padding: 10px 0 15px;
+    }
+
     .me-left-wrapper {
         padding: 10px;
         align-items: center;
@@ -100,5 +114,13 @@
 
     .me-description {
         display: none;
+    }
+
+    .me-title-item {
+        font-size: 27px;
+    }
+
+    .me-title-item-lole {
+        font-size: 27px;
     }
 }
