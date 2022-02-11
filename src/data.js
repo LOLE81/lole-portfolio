@@ -11,7 +11,7 @@ const projects = [
     {
         id: 2,
         name: "RockeyPlay",
-        description: "Video platform develop as a final project with my Henry's teammates. Mobile first. Used techs: React, Redux, Webpack, TypeScript, JavaScript, Express, Sequelize, Node.js, Postgres, among a few other technologies. The idea behind this project is to provide companies, institutes, or other enterprises with a tool to store and share videos, organizing them according to their need. Allowing them to build a community customized just for them.",
+        description: "Video platform developed as a final project with my Henry's teammates. Mobile first. Used techs: React, Redux, Webpack, TypeScript, JavaScript, Express, Sequelize, Node.js, Postgres, among a few other technologies. The idea behind this project is to provide companies, institutes, or other enterprises with a tool to store and share videos, organizing them according to their need. Allowing them to build a community customized just for them.",
         landingImg: "./dataPics/landingRP.png",
         homeImg: "./dataPics/landingRP.png",
         extraImg: "./dataPics/aboutUs.png",

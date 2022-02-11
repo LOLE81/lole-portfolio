@@ -12,7 +12,7 @@ function Contact() {
 
     const formRef = useRef()
 
-    const darkMode = useSelector(state => state.darkMode)
+    const darkMode = useSelector(state => state.darkMode)  
 
     const [input, setInput] = useState({
         user_name: '',
@@ -82,10 +82,10 @@ function Contact() {
                     <b>Prefer to leave a message?</b>&nbsp;Let's get in touch. I'm here for any comments.
                 </p>
                 <form ref={formRef} onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Name" name="user_name" onChange={handleChange} value={input.user_name} style={{backgroundColor: darkMode && "#266170"}}/>
-                    <input type="text" placeholder="Subject" name="user_subject" onChange={handleChange} value={input.user_subject} style={{backgroundColor: darkMode && "#266170"}}/>
-                    <input type="text" placeholder="Email" name="user_email" onChange={handleChange} value={input.user_email} style={{backgroundColor: darkMode && "#266170"}}/>
-                    <textarea name="message" cols="30" rows="10" placeholder="Your message" onChange={handleChange} value={input.message} style={{backgroundColor: darkMode && "#266170"}}/>
+                    <input type="text" placeholder="Name" name="user_name" onChange={handleChange} value={input.user_name} className={darkMode ? "dMStyle" : undefined}/>
+                    <input type="text" placeholder="Email" name="user_email" onChange={handleChange} value={input.user_email} className={darkMode ? "dMStyle" : undefined}/>
+                    <input type="text" placeholder="Subject" name="user_subject" onChange={handleChange} value={input.user_subject} className={darkMode ? "dMStyle" : undefined}/>
+                    <textarea name="message" cols="30" rows="10" placeholder="Your message" onChange={handleChange} value={input.message} className={darkMode ? "dMStyle" : undefined}/>
                     <button>Submit</button>
                     {sent && "Message sent. Thanks!"}
                 </form>

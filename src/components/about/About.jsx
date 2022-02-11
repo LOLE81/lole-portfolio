@@ -20,8 +20,8 @@ function About() {
                 Who am I? 
             </p>
             <p className="about-description">
-                My birth name is Pablo, but everybody calls me Lole. Last year I found in programming a new passion. After a few months of hard studying I can now say I'm a Full Stack Web Developer.
-                I worked as a trader in the agricultural area for many years, with experience in commodities suchs as soybeans, corn, wheat, barley and others. I've decided to change that way of life, today I'm looking forward to learn and apply all kind of knowledge related to this new passion. 
+                My birth name is Pablo, but everyone calls me Lole. Last year I found in programming a new passion. After a few months of hard studying I can now say I'm a Full Stack Web Developer.
+                I worked as a trader in the agricultural area for many years, with experience in commodities such as soybeans, corn, wheat, barley and others. I've decided to change that way of life, today I'm looking forward to learn and apply all kind of knowledge related to this new passion. 
                 I'm looking for new experiences and hoping to have the chance to contribute and continue learning, to improve as a professional. 
                 I really like to work in teams and also enjoy working alone if necessary.<br/>Oh, and I love dogs!!!
             </p>
