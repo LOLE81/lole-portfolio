@@ -15,6 +15,7 @@
 .contact-wrapper {
     padding: 0px 50px;
     display: flex;
+    position: relative;
 }
 
 /* .contact-left {
@@ -86,6 +87,7 @@
 
 form {
     margin-top: 20px;
+    position: relative; 
 }
 
 input {
@@ -96,6 +98,7 @@ input {
     margin: 10px 0px;
     font-size: 14px;
     padding-left: 10px;
+    position: relative;
 }
 
 textarea {
@@ -105,11 +108,12 @@ textarea {
     padding-left: 10px;
     border-color: #0e5364;
     border-radius: 10px;
-}
-
-textarea::placeholder {
     padding-top: 11px;
 }
+
+/* textarea::placeholder {
+    padding-top: 11px;
+} */
 
 button {
     border: none;
@@ -119,6 +123,7 @@ button {
     color: rgb(217, 239, 241);
     font-weight: 500;
     cursor: pointer;
+    position: relative;
 }
 
 .dMStyle {
@@ -129,6 +134,10 @@ button {
 
 .dMStyle::placeholder {
     color: white;
+}
+
+span {
+    padding: 5px;    
 }
 
 @media screen and (max-width: 768px) {

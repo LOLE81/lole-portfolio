@@ -7,12 +7,17 @@ import Location from "../../images/icons8-ubicación-en-todo-el-mundo-48.png"
 import { useRef, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form"
 
 function Contact() {
 
     const formRef = useRef()
 
-    const darkMode = useSelector(state => state.darkMode)  
+    const darkMode = useSelector(state => state.darkMode)
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
+    console.log(watch("user_name"));
 
     const [input, setInput] = useState({
         user_name: '',
@@ -23,22 +28,36 @@ function Contact() {
     
     const [sent, setSent] =useState(false);
     
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        emailjs.sendForm('service_nd3yjci', 'template_18hkclj', formRef.current, 'user_BNyoPqMqlKeTWw9A9fBqZ')
-          .then((result) => {
-              console.log(result.text);
-              setSent(true);
-          }, (error) => {
-              console.log(error.text);
-          });
-        setInput({
-            user_name: '',
-            user_subject: '',
-            user_email: '',
-            message: ''
-        })  
+    function validateEmail(email) {
+        var mailformat = /^\S+@\S+$/i;
+        if (email.match(mailformat)) return true;
     }
+
+    const handleEmail = (e) => {
+        e.preventDefault();
+        if (!input.user_name || !input.user_email || !validateEmail(input.user_email) || !input.user_subject || !input.message) {            
+            handleSubmit()(onSubmit)
+        } else {
+            emailjs.sendForm('service_nd3yjci', 'template_18hkclj', formRef.current, 'user_BNyoPqMqlKeTWw9A9fBqZ')
+                .then((result) => {
+                    console.log(result.text);
+                    setSent(true);
+                }, (error) => {
+                    console.log(error.text);
+                });
+            setInput({
+                user_name: '',
+                user_subject: '',
+                user_email: '',
+                message: ''
+            })
+            const spans = document.getElementsByTagName("span")
+            for (var i= 0; i < spans.length; i++) {
+                spans[i].style.display = 'none'
+            };
+        }
+    }
+    
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -53,7 +72,7 @@ function Contact() {
         <div className="contact-bg"></div>
         <div className="contact-wrapper">
             <div className="contact-left">
-                <h1 className="contact-title">Where you can find me</h1>
+                <h1 className="contact-title">Find me @:</h1>
                 <div className="contact-info">
                     <div className="contact-info-item">
                         <a href="https://wa.link/q0b5au" target="_blank" rel="noreferrer"><img src={Phone} alt="phone img" className="contact-icon" /></a>
@@ -81,13 +100,19 @@ function Contact() {
                 <p className="contact-description">
                     <b>Prefer to leave a message?</b>&nbsp;Let's get in touch. I'm here for any comments.
                 </p>
-                <form ref={formRef} onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Name" name="user_name" onChange={handleChange} value={input.user_name} className={darkMode ? "dMStyle" : undefined}/>
-                    <input type="text" placeholder="Email" name="user_email" onChange={handleChange} value={input.user_email} className={darkMode ? "dMStyle" : undefined}/>
-                    <input type="text" placeholder="Subject" name="user_subject" onChange={handleChange} value={input.user_subject} className={darkMode ? "dMStyle" : undefined}/>
-                    <textarea name="message" cols="30" rows="10" placeholder="Your message" onChange={handleChange} value={input.message} className={darkMode ? "dMStyle" : undefined}/>
-                    <button>Submit</button>
-                    {sent && "Message sent. Thanks!"}
+                <form ref={formRef} onSubmit={handleEmail}>
+                    <input type="text" placeholder="Name" {...register("user_name", { required: true })} onChange={handleChange} value={input.user_name} className={darkMode ? "dMStyle" : undefined}/>
+                    {errors.user_name && <span name="error">Please complete your name</span>}
+                    <input type="text" placeholder="Email" {...register("user_email", { required: true, pattern: /^\S+@\S+$/i })} onChange={handleChange} value={input.user_email} className={darkMode ? "dMStyle" : undefined}/>
+                    {errors.user_email && <span name="error">Please enter a valid e-mail</span>}
+                    <input type="text" placeholder="Subject" {...register("user_subject", { required: true })} onChange={handleChange} value={input.user_subject} className={darkMode ? "dMStyle" : undefined}/> 
+                    {errors.user_subject && <span name="error">Please complete with a subject</span>}
+                    <textarea {...register("message", { required: true })} cols="20" rows="10" placeholder="Your message" onChange={handleChange} value={input.message} className={darkMode ? "dMStyle" : undefined}/>
+                    {errors.message && <span name="error">Please complete this field</span>}                    
+                    <div>
+                        <button>Submit</button>
+                        {sent &&  " Message sent. Thanks!"}
+                    </div>
                 </form>
             </div>
         </div>  
